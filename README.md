@@ -1,4 +1,5 @@
 # AWS Crypto Lab
 
 
-![appArch drawio](https://github.com/user-attachments/assets/e0737e35-1a11-48e0-9060-549d1a051422)
+
+![awsprojarch drawio](https://github.com/user-attachments/assets/c8563f92-6323-4e77-9636-eda87d850fa4)

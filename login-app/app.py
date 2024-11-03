@@ -1,18 +1,19 @@
 from flask import Flask, request, redirect, url_for, render_template
 import psycopg2
 import logging
+import os
 
 app = Flask(__name__)
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)
 
-# RDS database configuration
-db_host = 'microservice.caywlfxrbtml.eu-central-1.rds.amazonaws.com'
-db_port = '5432'
-db_user = 'postgres'
-db_password = '8nDzLEzeyBXqyODaJa3j'
-db_name = 'microservice'
+# RDS database configuration using environment variables
+db_host = os.getenv('DB_HOST', 'default_host')
+db_port = os.getenv('DB_PORT', '5432')
+db_user = os.getenv('DB_USER', 'default_user')
+db_password = os.getenv('DB_PASSWORD', 'default_password')
+db_name = os.getenv('DB_NAME', 'default_db')
 table_name = 'users'
 
 # Database Connection
@@ -31,11 +32,15 @@ def get_db_connection():
         return None
 
 # Routes
-@app.route('/')
+@app.route('/welcome')
 def login():
     return render_template('login.html')
 
-@app.route('/login', methods=['POST'])
+@app.route('/')
+def home():
+    return "Hello, this is the home page."
+
+@app.route('/welcome/login', methods=['POST'])
 def login_post():
     email = request.form['email']
     password = request.form['password']
@@ -53,10 +58,9 @@ def login_post():
     
     return redirect(url_for('login'))
 
-@app.route('/product')
+@app.route('/welcome/product')
 def product():
     return redirect("http://crypto-app-882103207.eu-central-1.elb.amazonaws.com:5000/welcomepage")
-    #return "Hello, this is the product page."
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=True, host='0.0.0.0', port=5001)

@@ -1,19 +1,16 @@
 import psycopg2
 import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Environment variables for database connection
-# DB_URL = os.environ.get('AWS_RDS_URL')
-# DB_PORT = os.environ.get('AWS_RDS_PORT')
-# DB_USER = os.environ.get('AWS_RDS_USERNAME')
-# DB_PASSWORD = os.environ.get('AWS_RDS_PASSWORD')
-# DB_NAME = os.environ.get('AWS_RDS_DB_NAME')
-
-
-db_host = 'microservice.caywlfxrbtml.eu-central-1.rds.amazonaws.com'
-db_port = '5432'
-db_user = 'postgres'
-db_password = '8nDzLEzeyBXqyODaJa3j'
-db_name = 'microservice'
+db_host = os.environ.get('AWS_RDS_URL')
+db_port = os.environ.get('AWS_RDS_PORT')
+db_user = os.environ.get('AWS_RDS_USERNAME')
+db_password = os.environ.get('AWS_RDS_PASSWORD')
+db_name = os.environ.get('AWS_RDS_DB_NAME')
 table_name = 'users'
 
 # Connect to the database

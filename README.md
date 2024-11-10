@@ -10,7 +10,8 @@ The application is built using Python and deployed on AWS, utilizing various AWS
 
 - **Microservices Architecture:** The project divides the application into independent microservices (e.g., a product service, a login service), enabling developers to work on isolated components without affecting the rest of the system.
 - **Scalability and Reliability:** With AWS services like ECS, CodePipeline, and Load Balancers, the application can scale as needed, ensuring high availability and minimal downtime.
-- **Continuous Integration and Deployment (CI/CD):** Code changes are automatically pushed through a CI/CD pipeline for seamless updates and deployment. -**Separation of Concerns:** Teams can work independently on their respective microservices (e.g., the Product team and Login team) without interference.
+- **Continuous Integration and Deployment (CI/CD):** Code changes are automatically pushed through a CI/CD pipeline for seamless updates and deployment.
+- **Separation of Concerns:** Teams can work independently on their respective microservices (e.g., the Product team and Login team) without interference.
 
 ## Project Architecture
 
